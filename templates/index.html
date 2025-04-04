@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="manifest" href="/static/manifest.json" />
+  <link rel="icon" href="/static/favicon.ico" />
+  <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+  <script>
+    if (navigator.serviceWorker) navigator.serviceWorker.register('/static/service-worker.js')
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>AI Resume Scanner</title>
+</head>
+<body class="bg-gradient-to-br from-blue-50 to-blue-100 min-h-screen p-6">
+  <div class="max-w-4xl mx-auto bg-white shadow-2xl rounded-3xl p-10">
+    <h1 class="text-4xl font-bold mb-8 text-center text-blue-700">🚀 AI Resume Scanner</h1>
+    <form action="/dashboard" method="POST" enctype="multipart/form-data" class="space-y-6">
+      <div>
+        <label class="font-semibold block mb-2">Upload Resume</label>
+        <input name="resume" type="file" accept=".pdf,.docx" class="w-full p-3 border rounded-xl" required />
+      </div>
+      
+      <div>
+        <label class="font-semibold block mb-2">Job Description</label>
+        <textarea name="job_description" rows="4" placeholder="Paste job description..." class="w-full p-3 border rounded-xl"></textarea>
+      </div>
+      <div>
+        <label class="font-semibold block mb-2">LinkedIn Profile URL</label>
+        <input name="linkedin" type="url" placeholder="https://linkedin.com/in/yourprofile" class="w-full p-3 border rounded-xl"/>
+      </div>
+      <button type="submit" class="w-full bg-blue-600 text-white text-lg py-3 rounded-xl hover:bg-blue-700 transition">Analyze Resume</button>
+    </form>
+  </div>
+</body>
+</html>
