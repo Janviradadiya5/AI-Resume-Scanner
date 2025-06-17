@@ -4,7 +4,7 @@ python-docx
 scikit-learn
 PyMuPDF  # For import fitz
 reportlab
-re                    # built-in, no need to include
+                   # built-in, no need to include
 pdfminer.six
 nltk
 spacy
