@@ -1,4 +1,6 @@
+import os
 from flask import Flask, render_template, request
+
 from utils import (
     parse_resume,
     match_resume_with_jd,
